@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.sunshine.currentweather.CurrentWeather;
-import com.android.sunshine.helpers.ConvertTime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -61,7 +60,7 @@ public class CurrentWeatherActivity extends AppCompatActivity {
     private TextView mCloudyValueTextView;
 
     private static String TIME_PATTERN = "h:mm a";
-    private static long THOUSAND = 1000;
+    private static long THOUSAND = 1000L;
     private TextView mSunriseTextView;
     private TextView mSunsetTextView;
     private String iconStr;
@@ -176,10 +175,10 @@ public class CurrentWeatherActivity extends AppCompatActivity {
         mCloudyValueTextView.setText(String.valueOf(cloudy) + PERCENT_SIGN);
 
         long sunrise = mCurrentWeather.getSys().getSunrise();
-        mSunriseTextView.setText(ConvertTime.convertTime(sunrise, TIME_PATTERN));
+        mSunriseTextView.setText(convertTime(sunrise, TIME_PATTERN));
 
         long sunset = mCurrentWeather.getSys().getSunset();
-        mSunsetTextView.setText(String.valueOf(convertToTime(sunset, TIME_PATTERN)));
+        mSunsetTextView.setText(String.valueOf(convertTime(sunset, TIME_PATTERN)));
     }
 
     @Override
@@ -204,9 +203,10 @@ public class CurrentWeatherActivity extends AppCompatActivity {
         }
     }
 
-    private String convertToTime(long unixTime, String pattern) {
-        String time = new SimpleDateFormat(TIME_PATTERN)
-                .format(new Date(unixTime * THOUSAND));
-        return time;
+        public static  String convertTime(long unixTime, String pattern) {
+            String time = new SimpleDateFormat(TIME_PATTERN)
+                    .format(new Date(unixTime * THOUSAND));
+            return time;
+        }
+
     }
-}

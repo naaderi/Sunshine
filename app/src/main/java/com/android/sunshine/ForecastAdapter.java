@@ -8,9 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.android.sunshine.helpers.ConvertDate;
 import com.android.sunshine.weatherforecast.WeatherForecast;
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import static com.android.sunshine.App.DEGREE_AND_C_SIGN;
 import static com.android.sunshine.App.DEGREE_SIGN;
@@ -26,6 +29,9 @@ public class ForecastAdapter extends BaseAdapter {
     private String iconStr;
     private String weatherDescription = "";
     private TextView dateTextView;
+    private static String DATE_PATTERN = "\"EEE, MMM d\"";
+    private static long THOUSAND = 1000l;
+    private static String TIME_ZONE = "GMT+3.5";
 
     public ForecastAdapter(WeatherForecast ForecastListItem) {
         this.mForecastListItem = ForecastListItem;
@@ -65,7 +71,7 @@ public class ForecastAdapter extends BaseAdapter {
         //set date
 
         long unixSeconds = mForecastListItem.getList().get(i).getDt();
-        String date = ConvertDate.convertDate(unixSeconds);
+        String date = convertDate(unixSeconds);
         dateTextView = rowViews.findViewById(R.id.layoutDescriptIconDate_textView_date);
         if (!TextUtils.isEmpty(String.valueOf(date)))
             dateTextView.setText(date);
@@ -145,9 +151,14 @@ public class ForecastAdapter extends BaseAdapter {
         int cloudy = mForecastListItem.getList().get(i).getClouds();
         TextView cloudsValue = infoBoxesClouds.findViewById(R.id.layoutInfoBox_textView_value);
         cloudsValue.setText(String.valueOf(cloudy)+PERCENT_SIGN);
-
         return rowViews;
     }
 
-
+    public static String convertDate(long longDate) {
+        Date date = new Date(longDate * THOUSAND);
+        SimpleDateFormat daytime = new SimpleDateFormat(DATE_PATTERN);
+        daytime.setTimeZone(TimeZone.getTimeZone(TIME_ZONE));
+        String formattedDate = daytime.format(date);
+        return formattedDate;
+    }
 }
