@@ -1,0 +1,112 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="background_activity" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">@dimen/padding4</item>
+        <item name="android:paddingBottom">@dimen/padding4</item>
+        <item name="android:paddingRight">@dimen/padding4</item>
+        <item name="android:paddingLeft">@dimen/padding4</item>
+
+        <item name="background">@color/background_main</item>
+    </style>
+
+    <style name="error_network" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+
+    </style>
+
+    <style name="descripIconDateView" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">@dimen/infoBox_text_size</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">@dimen/padding4</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="topViewsInRowLayout" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/width_heiht_80</item>
+        <item name="android:padding">@dimen/padding8</item>
+        <item name="android:layout_marginTop">@dimen/margin4</item>
+        <item name="android:layout_marginBottom">@dimen/margin4</item>
+
+
+    </style>
+
+    <style name="tempsInRowLayout" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/margin4</item>
+        <item name="android:padding">@dimen/padding4</item>
+
+    </style>
+
+    <style name="infoBoxInRowLayout" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">@dimen/margin8</item>
+        <item name="android:layout_marginLeft">@dimen/margin8</item>
+        <item name="android:textSize">@dimen/infoBox_text_size</item>
+    </style>
+
+    //ok
+
+    <style name="infoBoxLayout" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/height_infoBoxLayout</item>
+        <item name="android:layout_marginRight">@dimen/margin8</item>
+        <item name="android:layout_marginLeft">@dimen/margin8</item>
+        <item name="android:layout_marginTop">@dimen/margin8</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+
+    <style name="partsOfDay" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">@dimen/partsOdDay_text_size</item>
+        <item name="android:layout_marginLeft">@dimen/margin8</item>
+        <item name="android:layout_marginRight">@dimen/margin8</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+
+    <style name="horizontal_line" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_thickness</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <style name="vertical_line" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">@dimen/line_thickness</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <style name="relative_layout_line" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/relative_layout_height_line</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="infoboxInCurrentWeather" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+</resources>

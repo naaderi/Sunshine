@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+
+    <!--parts of the day-->
+    <string name="today">Today</string>
+    <string name="morning">Morning</string>
+    <string name="day">Day</string>
+    <string name="evening">Evening</string>
+    <string name="night">Night</string>
+    <string name="temp">Temp</string>
+    <string name="min_max_temp">Min_Max Temp</string>
+    <string name="atmosphericPressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="clouds">Clouds</string>
+    <string name="wind_direction">Wind direction</string>
+
+
+    <string name="current_weather">Current Weather</string>
+    <string name="weather_forecast">Weather Forecast</string>
+
+    <string name="sunset">Sunset</string>
+    <string name="sunrise">Sunrise</string>
+
+    <string name="no_internet">No Internet Connection</string>
+    <string name="wifi_settings">Wifi Settings</string>
+
+    <string name="menu_title_forecast">Weather Forecast</string>
+    <string name="exit_menu">Exit</string>
+</resources>

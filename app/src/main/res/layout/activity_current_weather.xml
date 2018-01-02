@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background_activity"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    android:orientation="vertical"
+    android:weightSum="8"
+    tools:context="com.android.sunshine.CurrentWeatherActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin4"
+        android:layout_weight="1.5"
+        android:background="@drawable/background_bright"
+        android:orientation="horizontal">
+
+        <include layout="@layout/current_weather_layout_1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@drawable/background_mid"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding4"
+        android:paddingTop="@dimen/padding4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/activityCurrentWeather_layout_atmosphericPressure"
+                style="@style/infoboxInCurrentWeather"
+                layout="@layout/info_box_layout" />
+
+            <include
+                android:id="@+id/activityCurrentWeather_layout_minMaxTemp"
+                style="@style/infoboxInCurrentWeather"
+                layout="@layout/info_box_layout" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin4"
+            android:layout_weight="1.5"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/activityCurrentWeather_layout_windSpeed"
+                style="@style/infoboxInCurrentWeather"
+                layout="@layout/info_box_layout" />
+
+            <include
+                android:id="@+id/activityCurrentWeather_layout_humidity"
+                style="@style/infoboxInCurrentWeather"
+                layout="@layout/info_box_layout" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/activityCurrentWeather_layout_windDirection"
+                style="@style/infoboxInCurrentWeather"
+                layout="@layout/info_box_layout" />
+
+            <include
+                android:id="@+id/activityCurrentWeather_layout_clouds"
+                style="@style/infoboxInCurrentWeather"
+                layout="@layout/info_box_layout" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/margin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin4"
+        android:layout_weight="1.5"
+        android:background="@drawable/background_dark"
+        android:padding="@dimen/padding8">
+
+        <include layout="@layout/current_weather_layout_3" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/width_heiht_80"
+    android:background="@drawable/background_bright"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/layoutDescriptIconDate_textView_date"
+        style="@style/descripIconDateView"
+        />
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/layoutDescriptIconDate_imageView_icon"
+        android:layout_width="@dimen/width_heiht_80"
+        android:layout_height="@dimen/width_heiht_80"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/layoutDescriptIconDate_textView_description"
+        style="@style/descripIconDateView" />
+
+
+        />
+
+</LinearLayout>

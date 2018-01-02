@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+
+    <!--parts of the day-->
+    <string name="today">امروز</string>
+    <string name="morning">صبح</string>
+    <string name="noon">ظهر</string>
+    <string name="aftrenoon">عصر</string>
+    <string name="night">شب</string>
+    <string name="temp">دما</string>
+
+    <string name="min_max_temp">حداقل-حداکثر دما</string>
+    <string name="pressure">فشار هوا</string>
+    <string name="humidity">رطوبت</string>
+    <string name="wind_speed">سرعت باد</string>
+    <string name="clouds">میزان ابری بودن</string>
+    <string name="wind_direction">جهت وزش باد</string>
+    <string name="sunset">غروب آفتاب</string>
+    <string name="sunrise">طلوع آفتاب</string>
+
+    <string name="try_again">تلاش مجدد</string>
+    <string name="no_internet">اینترنت قطع است</string>
+
+</resources>

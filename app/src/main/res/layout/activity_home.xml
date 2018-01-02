@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activityHome_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin16"
+    android:background="@color/background_main"
+    tools:context="com.android.sunshine.HomeActivity">
+
+    <!--<include-->
+    <!--android:id="@+id/txt1"-->
+    <!--layout="@layout/info_box_layout"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+
+    <!--<include-->
+    <!--android:id="@+id/txt2"-->
+    <!--layout="@layout/info_box_layout"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/txt1" />-->
+
+    <!--<include-->
+    <!--layout="@layout/info_box_layout"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/txt2" />-->
+
+    <TextView
+        android:id="@+id/activityHome_textView_noNetwork"
+        android:layout_width="@dimen/width_220"
+        android:layout_height="@dimen/height_50"
+        android:layout_above="@+id/activityHome_button_wifiSettings"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin8"
+        android:gravity="center"
+        android:text="@string/no_internet"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size_16"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/activityHome_button_wifiSettings"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="@dimen/width_120"
+        android:layout_height="@dimen/height_50"
+        android:layout_centerInParent="true"
+        android:background="@color/background_layout_top"
+        android:text="@string/wifi_settings" />
+</RelativeLayout>
