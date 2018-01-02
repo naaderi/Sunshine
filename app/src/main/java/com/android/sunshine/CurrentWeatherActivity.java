@@ -163,11 +163,11 @@ public class CurrentWeatherActivity extends AppCompatActivity {
 
         mWindDirTitleTextView.setText(R.string.wind_direction);
         int winDirection = mCurrentWeather.getWind().getDeg();
-        mWindDirValueTextView.setText(String.valueOf(winDirection) + DEGREE_SIGN);
+        mWindDirValueTextView.setText(winDirection + DEGREE_SIGN);
 
         mHumidityTitleTextView.setText(R.string.humidity);
         String humidity =String.valueOf(mCurrentWeather.getMain().getHumidity());
-        mHumidityValueTextView.setText(String.valueOf(humidity) + PERCENT_SIGN);
+        mHumidityValueTextView.setText(humidity + PERCENT_SIGN);
 
         mCloudyTitleTextView.setText(R.string.clouds);
         String cloudy =String.valueOf(mCurrentWeather.getClouds().getAll());
