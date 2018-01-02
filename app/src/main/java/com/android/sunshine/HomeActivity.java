@@ -7,16 +7,14 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.sunshine.helpers.NetworkStatus;
-
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private NetworkStatus helperFunctions = new NetworkStatus(this);
     private TextView mNoNetworkTextView;
     private RelativeLayout mHomeActivityLayout;
     private Button mWifiSettingsButton;
@@ -31,8 +29,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         findViews();
-        mWifiSettingsButton.setOnClickListener(this);
         checkNetworkStatus();
+        mWifiSettingsButton.setOnClickListener(this);
     }
 
     private void findViews() {
@@ -54,6 +52,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     CurrentWeatherActivity.startCuurentWeatherActivity(HomeActivity.this);
                     finish();
                 } catch (Exception e) {
+                    Log.e("newThread Error ",e.getMessage());
                 }
             }
         };
@@ -62,7 +61,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View clickedView) {
         if (clickedView.getId() == R.id.activityHome_button_wifiSettings)
-            openNetworkSettings();}
+            openNetworkSettings();
+    }
 
     private void openNetworkSettings() {
         Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
@@ -75,8 +75,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if (connectivityManager != null) {
             networkInfo = connectivityManager.getActiveNetworkInfo();
         }
-
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
-
 }

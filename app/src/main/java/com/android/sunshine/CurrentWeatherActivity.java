@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -86,21 +86,20 @@ public class CurrentWeatherActivity extends AppCompatActivity {
         Call<CurrentWeather> call = api.currentWeatherApi();
         call.enqueue(new Callback<CurrentWeather>() {
             @Override
-            public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
-                mCurrentWeather = response.body();
+            public void onResponse(@NonNull Call<CurrentWeather> currentWeatherCall, @NonNull Response<CurrentWeather> currentWeatherResponse) {
+                mCurrentWeather = currentWeatherResponse.body();
                 getDataFromResponse(mCurrentWeather);
             }
 
             @Override
-            public void onFailure(Call<CurrentWeather> call, Throwable t) {
-                Log.i("On Failure ", "error");
+            public void onFailure(@NonNull Call<CurrentWeather> onFailureall, @NonNull Throwable t) {
                 Toast.makeText(CurrentWeatherActivity.this, "Something went wrong.\n  Please try later.", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }
 
     private void findViews() {
-
         mTemp = findViewById(R.id.activityCurrentWeather_textView_temp);
         mDescriptionTextView = findViewById(R.id.activityCurrentWeather_textView_description);
 
@@ -136,27 +135,27 @@ public class CurrentWeatherActivity extends AppCompatActivity {
 
     private void getDataFromResponse(CurrentWeather mCurrentWeather) {
         mDescriptionTextView.setText(mCurrentWeather.getWeather().get(0).getMain());
-        //icon
         iconStr = mCurrentWeather.getWeather().get(0).getIcon();
         Uri uri = Uri.parse("http://openweathermap.org/img/w/" + iconStr + ".png");
         SimpleDraweeView draweeView = findViewById(R.id.activityCurrentWeather_icon);
         draweeView.setImageURI(uri);
-        //
         draweeView.setImageURI(uri);
 
-
-        double tempDouble = mCurrentWeather.getMain().getTemp();
-        //  int temp=(int)tempDouble;
-        mTemp.setText(String.valueOf((int) tempDouble) + DEGREE_AND_C_SIGN);
+        double tempDouble =mCurrentWeather.getMain().getTemp();
+        int tempInt=(int)tempDouble;
+        mTemp.setText(tempInt+ DEGREE_AND_C_SIGN);
 
         mPressureTitleTextView.setText(R.string.atmosphericPressure);
         double pressure = mCurrentWeather.getMain().getPressure();
-        mPressureValueTextView.setText(String.valueOf((int) pressure) + PRESSURE_UNIT);
+        mPressureValueTextView.setText(pressure + PRESSURE_UNIT);
 
         mMinMaxTempTitleTextView.setText(R.string.min_max_temp);
         double minTemp = mCurrentWeather.getMain().getTempMin();
+        int minTempInt=(int) minTemp;
         double maxTemp = mCurrentWeather.getMain().getTempMax();
-        mMinMaxTempValueTextView.setText((int) minTemp + DEGREE_AND_C_SIGN + "-" + (int) maxTemp + DEGREE_AND_C_SIGN);
+        int maxTempInt=(int) maxTemp;
+        mMinMaxTempValueTextView.setText(minTempInt + DEGREE_AND_C_SIGN + "-" +
+                maxTempInt + DEGREE_AND_C_SIGN);
 
         mWindSpeedTitleTextView.setText(R.string.wind_speed);
         double windSpeed = mCurrentWeather.getWind().getSpeed();
@@ -167,18 +166,24 @@ public class CurrentWeatherActivity extends AppCompatActivity {
         mWindDirValueTextView.setText(String.valueOf(winDirection) + DEGREE_SIGN);
 
         mHumidityTitleTextView.setText(R.string.humidity);
-        int humidity = mCurrentWeather.getMain().getHumidity();
+        String humidity =String.valueOf(mCurrentWeather.getMain().getHumidity());
         mHumidityValueTextView.setText(String.valueOf(humidity) + PERCENT_SIGN);
 
         mCloudyTitleTextView.setText(R.string.clouds);
-        int cloudy = mCurrentWeather.getClouds().getAll();
-        mCloudyValueTextView.setText(String.valueOf(cloudy) + PERCENT_SIGN);
+        String cloudy =String.valueOf(mCurrentWeather.getClouds().getAll());
+        mCloudyValueTextView.setText(cloudy + PERCENT_SIGN);
 
         long sunrise = mCurrentWeather.getSys().getSunrise();
-        mSunriseTextView.setText(convertTime(sunrise, TIME_PATTERN));
+        mSunriseTextView.setText(convertTime(sunrise));
 
         long sunset = mCurrentWeather.getSys().getSunset();
-        mSunsetTextView.setText(String.valueOf(convertTime(sunset, TIME_PATTERN)));
+        mSunsetTextView.setText(convertTime(sunset));
+    }
+
+    public static String convertTime(long unixTime) {
+        String time = new SimpleDateFormat(TIME_PATTERN)
+                .format(new Date(unixTime * THOUSAND));
+        return time;
     }
 
     @Override
@@ -190,23 +195,8 @@ public class CurrentWeatherActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.weatherForecast_menu:
-                ForecastListviewActivity.startForecastActivity(CurrentWeatherActivity.this);
-                return true;
-            case R.id.exit_menu:
-                finish();
-
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        if (item.getItemId() == R.id.weatherForecast_menu)
+            ForecastListviewActivity.startForecastActivity(CurrentWeatherActivity.this);
+        return super.onOptionsItemSelected(item);
     }
-
-        public static  String convertTime(long unixTime, String pattern) {
-            String time = new SimpleDateFormat(TIME_PATTERN)
-                    .format(new Date(unixTime * THOUSAND));
-            return time;
-        }
-
-    }
+}

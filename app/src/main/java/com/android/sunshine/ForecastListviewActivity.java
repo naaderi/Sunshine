@@ -3,10 +3,8 @@ package com.android.sunshine;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.android.sunshine.weatherforecast.WeatherForecast;
@@ -56,29 +54,15 @@ public class ForecastListviewActivity extends AppCompatActivity {
         Call<WeatherForecast> weatherForecastResponse = api.weatherForecastApi();
         weatherForecastResponse.enqueue(new Callback<WeatherForecast>() {
             @Override
-            public void onResponse(Call<WeatherForecast> call, Response<WeatherForecast> response) {
-                mWeatherForecast = response.body();
+            public void onResponse(@NonNull Call<WeatherForecast> forecastCall, @NonNull Response<WeatherForecast> forecastResponse) {
+                mWeatherForecast = forecastResponse.body();
                 initListView();
             }
 
             @Override
-            public void onFailure(Call<WeatherForecast> call, Throwable t) {
+            public void onFailure(@NonNull Call<WeatherForecast> onFailureCall, @NonNull Throwable t) {
                 HomeActivity.startHomeActivity(ForecastListviewActivity.this);
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.weatherforecast,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.exit)
-            finish();
-        return super.onOptionsItemSelected(item);
     }
 }
