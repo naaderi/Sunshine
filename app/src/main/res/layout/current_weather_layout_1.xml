@@ -18,7 +18,7 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/activityCurrentWeather_icon"
-        android:layout_width="@dimen/width_heiht_96"
+        android:layout_width="@dimen/width_heiht_80"
         android:layout_height="@dimen/width_heiht_80" />
 
     <TextView
