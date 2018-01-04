@@ -18,7 +18,10 @@
     <string name="sunset">غروب آفتاب</string>
     <string name="sunrise">طلوع آفتاب</string>
 
-    <string name="try_again">تلاش مجدد</string>
+    <string name="wifi_settings">تنظیمات Wifi</string>
     <string name="no_internet">اینترنت قطع است</string>
+
+    <string name="menu_title_forecast">پیش بینی آب و هوا</string>
+
 
 </resources>

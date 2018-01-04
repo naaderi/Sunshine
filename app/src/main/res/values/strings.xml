@@ -26,5 +26,4 @@
     <string name="wifi_settings">Wifi Settings</string>
 
     <string name="menu_title_forecast">Weather Forecast</string>
-    <string name="exit_menu">Exit</string>
 </resources>

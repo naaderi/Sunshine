@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/background_dark"
     android:padding="@dimen/padding4">
@@ -15,26 +16,24 @@
         <TextView
             android:id="@+id/layoutTemperature_textView_morningTemp"
             style="@style/partsOfDay"
-            android:text="44C"  />
+            tools:text="44C"  />
 
         <TextView
             android:id="@+id/layoutTemperature_textView_dayTemp"
             style="@style/partsOfDay"
-            android:text="44C"  />
+            tools:text="44C"  />
 
         <TextView
             android:id="@+id/layoutTemperature_textView_eveningTemp"
             style="@style/partsOfDay"
-            android:text="44C"  />
+            tools:text="44C"  />
 
         <TextView
             android:id="@+id/layoutTemperature_textView_nightTemp"
             style="@style/partsOfDay"
-            android:text="44C" />
+            tools:text="44C" />
 
     </LinearLayout>
-    <!-- temperatures - end-->
-    <!-- line -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,8 +69,6 @@
             <View style="@style/vertical_line" />
         </RelativeLayout>
     </LinearLayout>
-    <!-- line end-->
-    <!--parts of day-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -93,5 +90,4 @@
             style="@style/partsOfDay"
             android:text="@string/night" />
     </LinearLayout>
-    <!--parts of day -end-->
 </LinearLayout>

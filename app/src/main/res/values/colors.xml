@@ -3,10 +3,6 @@
     <color name="colorPrimary">#76beb1</color>
     <color name="colorPrimaryDark">#11a787</color>
     <color name="colorAccent">#dbdf6c</color>
-    <!--<color name="colorPrimary">#3F51B5</color>-->
-    <!--<color name="colorPrimaryDark">#303F9F</color>-->
-    <!--<color name="colorAccent">#FF4081</color>-->
-    <!-- weather background and colors  #fc8dbf21  #186915-->
     <color name="mid">#76beb1</color>
     <color name="bright">#b3dec0</color>
     <color name="stroke">#11a787</color>

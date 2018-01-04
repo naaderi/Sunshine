@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mNoNetworkTextView;
     private RelativeLayout mHomeActivityLayout;
     private Button mWifiSettingsButton;
+    private boolean wifiEnabled = false;
 
     public static void startHomeActivity(Context context) {
         Intent homeActivityIntent = new Intent(context, HomeActivity.class);
@@ -30,6 +31,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home);
         findViews();
         checkNetworkStatus();
+        if (wifiEnabled) {
+            startOtherActivity();
+        }
         mWifiSettingsButton.setOnClickListener(this);
     }
 
@@ -40,24 +44,27 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void checkNetworkStatus() {
-        Thread newThread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    //check if connected!
-                    while (!isConnected(HomeActivity.this)) {
-                        //Wait to connect
-                        Thread.sleep(1000);
+        if (isConnected(HomeActivity.this)) {
+            wifiEnabled = true;
+            return;
+        } else {
+            Thread newThread = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        while (!isConnected(HomeActivity.this) && !wifiEnabled) {
+                            Thread.sleep(1000);
+                        }
+                        wifiEnabled = true;
+                    } catch (Exception e) {
+                        Log.e("newThread Error ", e.getMessage());
                     }
-                    CurrentWeatherActivity.startCuurentWeatherActivity(HomeActivity.this);
-                    finish();
-                } catch (Exception e) {
-                    Log.e("newThread Error ",e.getMessage());
                 }
-            }
-        };
-        newThread.start();
+            };
+            newThread.start();
+        }
     }
+
     @Override
     public void onClick(View clickedView) {
         if (clickedView.getId() == R.id.activityHome_button_wifiSettings)
@@ -66,8 +73,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void openNetworkSettings() {
         Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
-        startActivity(intent);
+        startActivityForResult(intent, 0);
     }
+
     public static boolean isConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -76,5 +84,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             networkInfo = connectivityManager.getActiveNetworkInfo();
         }
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
+    }
+
+    private void startOtherActivity() {
+        CurrentWeatherActivity.startCuurentWeatherActivity(HomeActivity.this);
+        finish();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (wifiEnabled)
+            startOtherActivity();
     }
 }

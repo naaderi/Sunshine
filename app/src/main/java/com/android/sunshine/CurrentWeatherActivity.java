@@ -93,7 +93,7 @@ public class CurrentWeatherActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<CurrentWeather> onFailureall, @NonNull Throwable t) {
-                Toast.makeText(CurrentWeatherActivity.this, "Something went wrong.\n  Please try later.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CurrentWeatherActivity.this, "Something went wrong.\n  Please try later.", Toast.LENGTH_LONG).show();
                 finish();
             }
         });

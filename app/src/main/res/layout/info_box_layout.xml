@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
 
     <LinearLayout
         style="@style/infoBoxLayout"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:gravity="center"
-            android:text="@string/temp" />
+            tools:text="@string/temp" />
 
         <View
             android:layout_width="match_parent"
@@ -30,35 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:gravity="center"
-            android:text="@string/min_max_temp" />
+            tools:text="@string/min_max_temp" />
     </LinearLayout>
-
-
-    <!--<LinearLayout-->
-    <!--style="@style/infoBoxLayout"-->
-    <!--android:background="@drawable/background_info_box"-->
-    <!--android:orientation="vertical"-->
-    <!--android:padding="@dimen/margin4">-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="32dp"-->
-    <!--android:gravity="center"-->
-    <!--android:text="@string/temp" />-->
-
-    <!--<View-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="@dimen/line_thickness"-->
-    <!--android:layout_marginLeft="@dimen/margin8"-->
-    <!--android:layout_marginRight="@dimen/margin8"-->
-    <!--android:background="#5a7c6b" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="32dp"-->
-    <!--android:gravity="center"-->
-    <!--android:text="@string/min_max_temp" />-->
-    <!--</LinearLayout>-->
-
-
 </LinearLayout>

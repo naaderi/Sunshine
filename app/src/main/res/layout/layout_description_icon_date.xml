@@ -9,20 +9,16 @@
 
     <TextView
         android:id="@+id/layoutDescriptIconDate_textView_date"
-        style="@style/descripIconDateView"
-        />
+        style="@style/descripIconDateView" />
+
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/layoutDescriptIconDate_imageView_icon"
         android:layout_width="@dimen/width_heiht_80"
         android:layout_height="@dimen/width_heiht_80"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/layoutDescriptIconDate_textView_description"
         style="@style/descripIconDateView" />
-
-
-        />
 
 </LinearLayout>
