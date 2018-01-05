@@ -26,13 +26,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.android.sunshine.App.DEGREE_AND_C_SIGN;
-import static com.android.sunshine.App.DEGREE_SIGN;
-import static com.android.sunshine.App.PERCENT_SIGN;
-import static com.android.sunshine.App.PRESSURE_UNIT;
-import static com.android.sunshine.App.WINND_SPEED_UNIT;
-
 public class CurrentWeatherActivity extends AppCompatActivity {
+
+    public static final String DEGREE_AND_C_SIGN ="\u2103";
+    public static final String DEGREE_SIGN="\u00B0";
+    public static final String WINND_SPEED_UNIT=" m/s";
+    public static final String PERCENT_SIGN="%";
+    public static final String PRESSURE_UNIT=" hPa";
 
     private CurrentWeather mCurrentWeather;
     private TextView mTemp;
