@@ -10,7 +10,7 @@
     <string name="temp">دما</string>
 
     <string name="min_max_temp">حداقل-حداکثر دما</string>
-    <string name="pressure">فشار هوا</string>
+    <string name="atmosphericPressure">فشار هوا</string>
     <string name="humidity">رطوبت</string>
     <string name="wind_speed">سرعت باد</string>
     <string name="clouds">میزان ابری بودن</string>
