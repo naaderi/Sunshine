@@ -4,17 +4,22 @@
     <!--parts of the day-->
     <string name="today">امروز</string>
     <string name="morning">صبح</string>
-    <string name="noon">ظهر</string>
-    <string name="aftrenoon">عصر</string>
+    <string name="day">ظهر</string>
     <string name="night">شب</string>
-    <string name="temp">دما</string>
+    <string name="evening">عصر</string>
 
+
+    <string name="temp">دما</string>
     <string name="min_max_temp">حداقل-حداکثر دما</string>
     <string name="atmosphericPressure">فشار هوا</string>
     <string name="humidity">رطوبت</string>
     <string name="wind_speed">سرعت باد</string>
     <string name="clouds">میزان ابری بودن</string>
     <string name="wind_direction">جهت وزش باد</string>
+
+    <string name="current_weather">آب وهوای امروز</string>
+    <string name="weather_forecast">پیش بینی آب و هوا</string>
+
     <string name="sunset">غروب آفتاب</string>
     <string name="sunrise">طلوع آفتاب</string>
 

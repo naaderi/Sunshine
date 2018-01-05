@@ -7,6 +7,7 @@
     <string name="day">Day</string>
     <string name="evening">Evening</string>
     <string name="night">Night</string>
+
     <string name="temp">Temp</string>
     <string name="min_max_temp">Min_Max Temp</string>
     <string name="atmosphericPressure">Pressure</string>
